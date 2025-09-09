@@ -1,7 +1,5 @@
 package com.videovlog.artivlog.models;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,10 +13,21 @@ import lombok.Setter;
 @Entity
 @Table(name="Like")
 public class Like {
-    private int id;
-    private int idUsuario;
-    private int idVideo;
-    private int idComentario;
+    private Long id;
+
+    private Boolean positive;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private Usuario user;
+
+    @ManyToOne
+    @JoinColumn(name ="video_id", nullable = true)
+    private Video video;
+
+    @ManyToOne
+    @JoinColumn(name = "post_id", nullable = true)
+    private Post post;
 
 
     

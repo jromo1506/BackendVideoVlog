@@ -1,6 +1,7 @@
 package com.videovlog.artivlog.models;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
