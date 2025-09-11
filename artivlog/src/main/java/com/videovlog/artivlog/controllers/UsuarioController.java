@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 
+import com.videovlog.artivlog.models.Usuario;
+
 
 
 @RestController
@@ -29,34 +31,34 @@ public class UsuarioController {
     }
 
     @GetMapping("")
-    public List<Usuarios> getUsuarios() {
-        List<Usuarios> Lista = new ArrayList<Usuarios>();
+    public List<Usuario> getUsuarios() {
+        List<Usuario> Lista = new ArrayList<Usuario>();
         return Lista;
     }
 
     @GetMapping("/{id}")
-    public Usuarios getUsuarioById(@RequestParam String id) {
-        Usuarios usuario = new Usuarios();
+    public Usuario getUsuarioById(@RequestParam String id) {
+        Usuario usuario = new Usuario();
         return usuario;
     }
     
 
     @PostMapping("")
-    public Usuarios postUsuario(@RequestBody Usuarios entity) {
-        Usuarios usuario =  new Usuarios();
+    public Usuario postUsuario(@RequestBody Usuario entity) {
+        Usuario usuario =  new Usuario();
         return usuario;
     }
 
     @PutMapping("/{id}")
-    public Usuarios putUsuarios(@PathVariable String id, @RequestBody Usuarios entity) {
+    public Usuario putUsuarios(@PathVariable String id, @RequestBody Usuario entity) {
         
-        Usuarios usuario = new Usuarios();
+        Usuario usuario = new Usuario();
         return entity;
     }
 
     @DeleteMapping()
-    public Usuarios deleteUsuario(){
-        Usuarios usuario =  new Usuarios();
+    public Usuario deleteUsuario(){
+        Usuario usuario =  new Usuario();
         return usuario;
     }
     
