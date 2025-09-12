@@ -10,8 +10,9 @@ import com.videovlog.artivlog.models.*;
 public interface UsuarioService {
 
     public UsuarioDTO crearUsuario(Usuario usuario);
-    public UsuarioDTO getUsuario(String id);
+    public UsuarioDTO getUsuario(Long id);
     public List<UsuarioDTO> getUsuarios();
-    public UsuarioDTO putUsaurio(String id, Usuario usuario);
-    public UsuarioDTO postUsuario(Usuario usuario);    
+    public UsuarioDTO putUsaurio(Long id, Usuario usuario);
+    public UsuarioDTO postUsuario(Usuario usuario);
+    public void deleteUsuario(Long id);
 }
