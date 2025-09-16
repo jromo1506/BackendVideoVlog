@@ -13,6 +13,5 @@ public interface UsuarioService {
     public UsuarioDTO getUsuario(Long id);
     public List<UsuarioDTO> getUsuarios();
     public UsuarioDTO putUsaurio(Long id, Usuario usuario);
-    public UsuarioDTO postUsuario(Usuario usuario);
     public void deleteUsuario(Long id);
 }

@@ -8,6 +8,7 @@ import com.videovlog.artivlog.services.UsuarioService;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-
+import com.videovlog.artivlog.dto.UsuarioDTO;
 import com.videovlog.artivlog.models.Usuario;
 
 
@@ -27,39 +28,41 @@ public class UsuarioController {
 
     public final UsuarioService service;
     public UsuarioController(UsuarioService service){
+
         this.service = service;
     }
 
+
     @GetMapping("")
-    public List<Usuario> getUsuarios() {
-        List<Usuario> Lista = new ArrayList<Usuario>();
-        return Lista;
+    public ResponseEntity<List<UsuarioDTO>> getUsuarios() {
+        List<UsuarioDTO> Lista =   this.service.getUsuarios();
+        return ResponseEntity.ok(Lista);
     }
 
     @GetMapping("/{id}")
-    public Usuario getUsuarioById(@RequestParam String id) {
-        Usuario usuario = new Usuario();
-        return usuario;
+    public ResponseEntity<UsuarioDTO> getUsuarioById(@RequestParam Long id) {
+        UsuarioDTO usuario = this.service.getUsuario(id);
+        return ResponseEntity.ok(usuario);
     }
     
 
     @PostMapping("")
-    public Usuario postUsuario(@RequestBody Usuario entity) {
-        Usuario usuario =  new Usuario();
-        return usuario;
+    public ResponseEntity<UsuarioDTO> postUsuario(@RequestBody Usuario entity) {
+        UsuarioDTO usuario =  this.service.crearUsuario(entity)
+        return ResponseEntity.ok(usuario);
     }
 
     @PutMapping("/{id}")
-    public Usuario putUsuarios(@PathVariable String id, @RequestBody Usuario entity) {
+    public ResponseEntity<UsuarioDTO> putUsuarios(@PathVariable Long id, @RequestBody Usuario entity) {
         
-        Usuario usuario = new Usuario();
-        return entity;
+        UsuarioDTO usuario = this.service.putUsaurio(id, entity);
+        return ResponseEntity.ok(usuario);
     }
 
-    @DeleteMapping()
-    public Usuario deleteUsuario(){
-        Usuario usuario =  new Usuario();
-        return usuario;
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteUsuario(@PathVariable Long id){
+       this.service.deleteUsuario(id);
+       return ResponseEntity.noContent().build();
     }
     
     

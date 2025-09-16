@@ -60,7 +60,7 @@ public class UsuarioServiceImp implements UsuarioService {
 
     @Override
     public void deleteUsuario(Long id){
-      usuarioRepository.deleteById(null);
+      usuarioRepository.deleteById(id);
     }
 
 }
