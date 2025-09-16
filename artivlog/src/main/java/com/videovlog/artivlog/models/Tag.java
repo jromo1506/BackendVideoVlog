@@ -5,6 +5,8 @@ import java.util.List;
 
 import jakarta.persistence.*;
 
+@Entity
+@Table(name="Tag")
 public class Tag {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -14,7 +16,7 @@ public class Tag {
     private String contentType;
 
 
-    @Column(updatable = false);
+    @Column(updatable = false)
     private LocalDateTime createdAt = LocalDateTime.now();
 
     @ManyToMany(mappedBy = "tags")

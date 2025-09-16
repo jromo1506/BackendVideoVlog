@@ -8,7 +8,7 @@ import jakarta.persistence.*;
 
 
 @Entity
-@Table(name="video")
+@Table(name="Video")
 public class Video {
 
     @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -27,7 +27,7 @@ public class Video {
 
     @ManyToOne
     @JoinColumn(name="user_id")
-    private Usuario usuario;
+    private Usuario user;
 
 
     @OneToMany(mappedBy = "video")

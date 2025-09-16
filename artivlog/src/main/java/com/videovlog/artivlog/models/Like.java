@@ -11,8 +11,10 @@ import lombok.Setter;
 @NoArgsConstructor
 
 @Entity
-@Table(name="Like")
+@Table(name="Likes")
 public class Like {
+     @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
     private Boolean positive;
