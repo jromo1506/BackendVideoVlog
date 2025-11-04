@@ -59,8 +59,8 @@ public class UsuarioController {
         return ResponseEntity.ok(usuario);
     }
 
-    @DeleteMapping("")
-    public ResponseEntity<Void> deleteUsuario(@RequestParam Long id){
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteUsuario(@PathVariable Long id){
        this.service.deleteUsuario(id);
        return ResponseEntity.noContent().build();
     }

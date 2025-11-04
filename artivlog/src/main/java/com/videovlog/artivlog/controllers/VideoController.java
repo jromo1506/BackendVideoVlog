@@ -49,14 +49,14 @@ public class VideoController {
         return video;
     }
 
-    @PutMapping("path/{id}")
+    @PutMapping("/{id}")
     public Video putVideo(@PathVariable String id, @RequestBody Video entity) {
        Video video = new Video();
         return video;
     }
 
     @DeleteMapping("/{id}")
-    public Video deleteVideo(@PathVariable String id){
+    public Video deleteVideo(@PathVariable Long id){
         Video video =  new Video();
         return video;
     }
