@@ -14,6 +14,7 @@ public interface VideoService {
     public Video getVideo(Long id);
     public List<Video> getVideos();
     public Video putVideo(Long id,Video video);
+    public Video postVideo(Video video);
     public void deleteVideo(Long id);
     
 }
