@@ -11,10 +11,9 @@ import com.videovlog.artivlog.models.Video;
 public interface VideoService {
     
     public Video crearVideo(Video video);
-    public Video getVideo(Long id);
-    public List<Video> getVideos();
-    public Video putVideo(Long id,Video video);
-    public Video postVideo(Video video);
-    public void deleteVideo(Long id);
+    public Video obtenerVideo(Long id);
+    public List<Video> obtenerVideos();
+    public Video modificarVideo(Long id,Video video);
+    public void eliminarVideo(Long id);
     
 }

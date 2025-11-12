@@ -26,29 +26,31 @@ public class VideoServiceImpl implements  VideoService{
     }
 
     @Override
-    public Video getVideo(Long id){
+    public Video obtenerVideo(Long id){
         Video vid = videoRepository.findById(id)
         .orElseThrow(() -> new RuntimeException("Video no encontrado"));
         return vid;
     }
 
     @Override
-    public List<Video> getVideos(){
+    public List<Video> obtenerVideos(){
         List<Video> lista =  videoRepository.findAll();
         return lista;
     }
 
     @Override
-    public Video putVideo(Long id,Video newVideo){
+    public Video modificarVideo(Long id,Video newVideo){
         Video mod =  videoRepository.findById(id).
         orElseThrow(()->new RuntimeException("Not found"));
-        mod = newVideo;
+        mod.setTitle(newVideo.getTitle());
+        mod.setDescription(newVideo.getDescription());
+        mod.setVideoUrl(newVideo.getVideoUrl());
         return videoRepository.save(mod);
 
     }
 
     @Override
-    public void deleteVideo(Long id){
+    public void eliminarVideo(Long id){
         videoRepository.deleteById(id);
     }
 

@@ -8,6 +8,7 @@ import com.videovlog.artivlog.services.VideoService;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -31,34 +32,34 @@ public class VideoController {
 
 
     @GetMapping("")
-    public List<Video> getVideos(@RequestParam String param) {
-       List<Video> videos = new ArrayList<Video>();
-        return videos;
+    public ResponseEntity<List<Video>> getVideos(@RequestParam String param) {
+       List<Video> videos = this.service.obtenerVideos();
+        return ResponseEntity.ok(videos);
     }
 
     @GetMapping("/{id}")
-    public Video getVideo(@RequestParam String param) {
-        Video video = new Video();
-        return video;
+    public ResponseEntity<Video> getVideo(@PathVariable Long id) {
+        Video video = this.service.obtenerVideo(id);
+        return ResponseEntity.ok(video);
     }
     
 
     @PostMapping("")
-    public Video postVideo(@RequestBody String entity) {
-        Video video = new Video();
-        return video;
+    public ResponseEntity<Video> postVideo(@RequestBody Video entity) {
+        Video video = this.service.crearVideo(entity);
+        return ResponseEntity.ok(video);
     }
 
     @PutMapping("/{id}")
-    public Video putVideo(@PathVariable String id, @RequestBody Video entity) {
-       Video video = new Video();
-        return video;
+    public ResponseEntity<Video> putVideo(@PathVariable Long id, @RequestBody Video entity) {
+        Video video  =  this.service.modificarVideo(id, entity);
+        return ResponseEntity.ok(video);
     }
 
     @DeleteMapping("/{id}")
-    public Video deleteVideo(@PathVariable Long id){
-        Video video =  new Video();
-        return video;
+    public ResponseEntity<Void> deleteVideo(@PathVariable Long id){
+        this.service.eliminarVideo(id);
+        return ResponseEntity.noContent().build();
     }
     
     
