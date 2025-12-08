@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,13 +24,21 @@ import lombok.Setter;
 public class Comentario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
-    private int idVideo;
-    private int idUsuario;
+    @ManyToOne
+    @JoinColumn(name = "id_video", nullable = false)
+    private Video video;
 
-    @Column(name="comentario")
+    @ManyToOne
+    @JoinColumn(name = "id_usuario" , nullable = false)
+    private Usuario usuario;
+
+    @Column(name = "comentario",nullable = false, columnDefinition = "TEXT")
     private String comentario;
 
-    private int idComentario;
+    @ManyToOne
+    @JoinColumn(name="id_comentario_padre")
+    private Comentario comentarioPadre;
+
 }
