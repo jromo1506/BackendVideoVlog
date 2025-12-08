@@ -1,6 +1,9 @@
 package com.videovlog.artivlog.repository;
 
+import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import com.videovlog.artivlog.models.Comentario;
 
-public class ComentarioRepository extends JPARepository<Comentario,Long>{
+@Repository
+public interface ComentarioRepository extends JpaRepository<Comentario,Long>{
 }
