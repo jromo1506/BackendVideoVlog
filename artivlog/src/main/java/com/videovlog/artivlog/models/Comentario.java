@@ -45,7 +45,7 @@ public class Comentario {
     @JoinColumn(name="id_comentario_padre")
     private Comentario comentarioPadre;
 
-    @OneToMany(mappedBy = "comenatioPadre",cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "comentarioPadre",cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Comentario> respuestas;
 
 }
